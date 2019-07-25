@@ -27,7 +27,7 @@ void TitleScene::Update() {
 /*!
 * @brief ï`âÊèàóù
 */
-void TitleScene::Draw() const {
+void TitleScene::Draw() {
 
 	DrawString(100, 100, "FINAL QUEST", GetColor(255, 255, 255));
 	DrawString(100, 200, "PRESS  X  KEY", GetColor(255, 255, 255));

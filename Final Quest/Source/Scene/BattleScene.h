@@ -24,7 +24,7 @@ public:
 	BattleScene(IOnSceneChangedListener * sc_listener, const Parameter & parameter);
 	~BattleScene();
 	void Update() final;
-	void Draw() const final;
+	void Draw() final;
 	bool SelectCommand();
 
 private:

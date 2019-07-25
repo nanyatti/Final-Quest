@@ -11,5 +11,5 @@ public:
 	TitleScene(IOnSceneChangedListener * sc_listener, const Parameter & parameter);
 	~TitleScene() {}
 	void Update() final;
-	void Draw() const final;
+	void Draw() final;
 };

@@ -30,23 +30,7 @@ namespace Define {
 	// マップ
 	const int WIDE = 32;			//一区間の大きさ。例(32x32)
 	const int NUM_TOTAL_STAGE = 2;
-	int map[NUM_TOTAL_STAGE][WINDOW_HEIGHT / WIDE][WINDOW_WIDTH / WIDE];
-	int mapd[WINDOW_HEIGHT / WIDE][WINDOW_WIDTH / WIDE];
 
-	// サウンド
-	int battle_sound  = LoadSoundMem("dat/sound/battle/0.ogg");
-	int map_sound	= LoadSoundMem("dat/sound/map/0.ogg");
-	int se_sound[]	= {
-		LoadSoundMem("dat/sound/SE/2.ogg"),
-		LoadSoundMem("dat/sound/SE/3.ogg")
-	};
-
-	// 画像
-	int mapchip_img[1][4];
-	int back_img[] = {
-		LoadGraph("dat/img/back/0.png"),
-		LoadGraph("dat/img/battle/10.png")
-	};
 
 	//int mapd[WINDOW_HEIGHT / WIDE][WINDOW_WIDTH / WIDE] = { {}, };//通れる場所かどうかを判断するための２次元配列
 	//int map[NUM_TOTAL_STAGE][WINDOW_HEIGHT / WIDE][WINDOW_WIDTH / WIDE] = {//マップデータを格納するための３次元配列

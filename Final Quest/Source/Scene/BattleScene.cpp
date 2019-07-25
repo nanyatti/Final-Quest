@@ -50,12 +50,16 @@ void BattleScene::Update() {
 
 	switch (state_) {
 
-	case State::INITILIZATION:
+	case State::INITILIZATION: {
 
-		PlaySoundMem(Define:: battle_sound, DX_PLAYTYPE_LOOP);
+		int battle_sound = LoadSoundMem("dat/sound/battle/0.ogg");
+		PlaySoundMem(battle_sound, DX_PLAYTYPE_LOOP);
 
 		state_ = State::OPENING;
 		break;
+	}
+
+
 
 	case State::OPENING:
 		//battle_opening();
@@ -166,14 +170,18 @@ void BattleScene::Update() {
 /*!
 * @brief 描画処理
 */
-void BattleScene::Draw() const {
+void BattleScene::Draw() {
 
 	switch (state_) {
 
 	case State::BATTLE:
 
-		DrawGraph(0, 0, Define::back_img[0], FALSE);
-		DrawGraph(0, 480 - 134, Define::back_img[10], FALSE);
+		int back_img[] = {
+				LoadGraph("dat/img/back/0.png"),
+				LoadGraph("dat/img/battle/10.png")
+		};
+		DrawGraph(0, 0, back_img[0], FALSE);
+		DrawGraph(0, 480 - 134, back_img[1], FALSE);
 
 		monster_->Draw();
 		player_->Draw();
@@ -233,14 +241,19 @@ bool BattleScene::SelectCommand() {
 		return false;
 	}
 
+	int se_sound[] = {
+	LoadSoundMem("dat/sound/SE/2.ogg"),
+	LoadSoundMem("dat/sound/SE/3.ogg")
+	};
+
 	// コマンドの移動
 	if (keyboard->IsDownKey(VK_UP)) {
 		select_command = abs((select_command + 1) % 2);
-		PlaySoundMem(Define::se_sound[0], DX_PLAYTYPE_BACK);
+		PlaySoundMem(se_sound[0], DX_PLAYTYPE_BACK);
 	}
 	if (keyboard->IsDownKey(VK_DOWN)) {
 		select_command = abs((select_command - 1) % 2);
-		PlaySoundMem(Define::se_sound[0], DX_PLAYTYPE_BACK);
+		PlaySoundMem(se_sound[0], DX_PLAYTYPE_BACK);
 	}
 
 	// 位置の更新
@@ -255,7 +268,7 @@ bool BattleScene::SelectCommand() {
 
 	// 選択
 	if (keyboard->IsDownKey('X')) {
-		PlaySoundMem(Define::se_sound[1], DX_PLAYTYPE_BACK);
+		PlaySoundMem(se_sound[1], DX_PLAYTYPE_BACK);
 		return true;
 	}
 

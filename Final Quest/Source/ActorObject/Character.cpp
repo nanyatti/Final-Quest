@@ -2,6 +2,7 @@
 #include "Character.h"
 #include "../Input/Keyboard.h"
 #include "../ActorObject/Monster.h"
+#include "../Scene/DungeonScene.h"
 
 Character::Character() {
 
@@ -120,7 +121,7 @@ void Character::SetIsCommandState(bool flg) {
 /*!
 * @brief 位置を取得
 */
-const POINT & Character::GetPosition() const {
+POINT Character::GetPosition() const {
 
 	return position_;
 }
@@ -222,7 +223,7 @@ void Character::MoveDungeon() {
 		}
 
 		// 移動先が歩行可能な場合
-		if (Define::mapd[position_.y][position_.x] == 0) {
+		if (/*DungeonScene::mapd[position_.y][position_.x]*/1 == 0) {
 
 			// エンカウント抽選
 			is_encount_enemy = GetRand(15) == 0;

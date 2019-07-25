@@ -21,7 +21,7 @@ public:
 	void SetIsEncountEnemey(bool flg);
 	bool IsCommandState() const;
 	void SetIsCommandState(bool flg);
-	const POINT & GetPosition() const;
+	POINT GetPosition() const;
 	int GetHP() const;
 	const Define::Status & GetStatus() const;
 	int Attack(const Monster & monster);

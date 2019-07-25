@@ -13,7 +13,7 @@ public:
 	AbstructScene(IOnSceneChangedListener * sc_listener, const Parameter & parameter);
 	virtual ~AbstructScene() {};
 	virtual void Update() = 0;
-	virtual void Draw() const = 0;
+	virtual void Draw() = 0;
 
 protected:
 
